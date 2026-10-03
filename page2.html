@@ -1,14 +1,61 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-  <title>Вторая страница</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Грёзы Саблино — Выбор</title>
 </head>
-<body>
-  <h1>Это вторая страница</h1>
-  <p>Здесь может быть что угодно.</p>
-  <a href="index.html">← Вернуться на главную</a>
+
+<body class="page2_body">
+
+    <h3>Для начала выбери, за кого будешь играть.</h3>
+
+    <p class="subtitle">Каждый путь — своя история. Свои грёзы. Свой конец.</p>
+
+    <div class="characters">
+
+        <!-- Я -->
+        <div class="character-card">
+            <div class="video-box">
+                <video autoplay muted loop playsinline>
+                    <source src="common/video/ya_intro.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p class="char-name">Сабина</p>
+            <a href="ya/scene1.html">
+                <button>выбрать</button>
+            </a>
+        </div>
+
+        <!-- САША -->
+        <div class="character-card">
+            <div class="video-box">
+                <video autoplay muted loop playsinline>
+                    <source src="common/video/sasha_intro.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p class="char-name">Саша</p>
+            <a href="sasha/scene1.html">
+                <button>выбрать</button>
+            </a>
+        </div>
+
+        <!-- ВИКА -->
+        <div class="character-card">
+            <div class="video-box">
+                <video autoplay muted loop playsinline>
+                    <source src="common/video/vika_intro.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p class="char-name">Вика</p>
+            <a href="vika/scene1.html">
+                <button>выбрать</button>
+            </a>
+        </div>
+
+    </div>
+
 </body>
+</html>
 </html>
