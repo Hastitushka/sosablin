@@ -171,7 +171,73 @@ body.index_body button:hover::before {
     }
 }
 
-/* ===== АДАПТИВ ДЛЯ ТЕЛЕФОНА ===== */
+/* ===== ФИНАЛЬНЫЙ АКЦЕНТ — СУДЬБА ===== */
+
+body.index_body p.fate {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    color: #f5e9d6;
+    letter-spacing: 2px;
+    margin-top: 45px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    text-shadow:
+        0 0 12px rgba(245, 233, 214, 0.6),
+        0 0 30px rgba(201, 169, 122, 0.4);
+    position: relative;
+    z-index: 1;
+    animation: fateGlow 4s infinite ease-in-out, fadeIn 2s ease forwards;
+    animation-delay: 3s, 2.8s;
+    opacity: 0;
+}
+
+/* Золотые линии сверху и снизу */
+body.index_body p.fate::before,
+body.index_body p.fate::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 1px;
+    margin: 0 auto;
+    background: linear-gradient(
+        to right,
+        transparent,
+        #c9a97a,
+        #f5e9d6,
+        #c9a97a,
+        transparent
+    );
+    box-shadow: 0 0 10px rgba(201, 169, 122, 0.8);
+}
+
+body.index_body p.fate::before {
+    margin-bottom: 22px;
+}
+
+body.index_body p.fate::after {
+    margin-top: 22px;
+}
+
+/* Мягкое мерцание */
+@keyframes fateGlow {
+    0%, 100% {
+        text-shadow:
+            0 0 12px rgba(245, 233, 214, 0.6),
+            0 0 30px rgba(201, 169, 122, 0.4);
+    }
+    50% {
+        text-shadow:
+            0 0 20px rgba(245, 233, 214, 0.9),
+            0 0 50px rgba(201, 169, 122, 0.8);
+    }
+}
+
+
+
+
+
+/* ===== АДАПТИВ ДЛЯ ТЕЛЕФОНА ГЛАВНАЯ СТРАНИЦА===== */
 
 @media (max-width: 600px) {
     body.index_body {
