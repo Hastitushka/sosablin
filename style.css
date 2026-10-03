@@ -1,25 +1,189 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+/* ===== ОБЩИЕ НАСТРОЙКИ ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+/* ===== ПЕРВАЯ СТРАНИЦА ГЛАВНАЯ ===== */
+/* ===== ФОН ПЕРВАЯ СТРАНИЦА ГЛАВНАЯ ===== */
+
+body.index_body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: radial-gradient(circle at 50% 30%, #1a1a1f 0%, #0a0a0d 70%, #000 100%);
+    color: #e8e4dc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
     text-align: center;
-    padding: 20px;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+    overflow-x: hidden;
 }
 
-video {
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+/* Лёгкое мерцание фона — как свет свечи */
+body.index_body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 220, 180, 0.04), transparent 60%);
+    pointer-events: none;
+    animation: flicker 6s infinite ease-in-out;
+    z-index: 0;
 }
 
-button {
-    background-color: #4CAF50;
-    color: white;
+@keyframes flicker {
+    0%, 100% { opacity: 0.6; }
+    50%      { opacity: 1; }
+}
+
+/* ===== ЗАГОЛОВОК ===== */
+
+body.index_body h3 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: normal;
+    font-style: italic;
+    color: #f5e9d6;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(255, 220, 180, 0.25);
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+}
+
+body.index_body h3::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #c9a97a, transparent);
+    margin: 20px auto 0;
+}
+
+/* ===== ПАРАГРАФЫ ===== */
+
+body.index_body p {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    max-width: 620px;
+    margin: 0 auto 22px auto;
+    color: #cfc8bd;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+}
+
+body.index_body p:nth-of-type(1) { animation-delay: 0.6s; }
+body.index_body p:nth-of-type(2) { animation-delay: 1.2s; }
+body.index_body p:nth-of-type(3) { animation-delay: 1.8s; }
+body.index_body p:nth-of-type(4) { animation-delay: 2.4s; }
+
+/* Жирный текст — светится чуть ярче */
+body.index_body p b {
+    color: #f5e9d6;
+    font-weight: 600;
+}
+
+/* Курсив — мягкий, тёплый */
+body.index_body p i {
+    color: #d8c9a8;
+    font-style: italic;
+}
+
+/* ===== КНОПКА ===== */
+
+body.index_body a {
+    text-decoration: none;
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 3s;
+    opacity: 0;
+}
+
+body.index_body button {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: lowercase;
+    padding: 16px 48px;
+    color: #0a0a0d;
+    background: linear-gradient(135deg, #e8d5b0, #c9a97a);
     border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 4px;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 30px rgba(201, 169, 122, 0.3);
 }
 
-button:hover {
-    background-color: #45a049;
+body.index_body button:hover {
+    background: linear-gradient(135deg, #f5e9d6, #e8d5b0);
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(245, 233, 214, 0.6);
+    letter-spacing: 4px;
+}
+
+body.index_body button:active {
+    transform: translateY(0);
+    box-shadow: 0 0 20px rgba(201, 169, 122, 0.4);
+}
+
+/* Блик по кнопке */
+body.index_body button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
+    transition: left 0.6s ease;
+}
+
+body.index_body button:hover::before {
+    left: 100%;
+}
+
+/* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ===== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* ===== АДАПТИВ ДЛЯ ТЕЛЕФОНА ===== */
+
+@media (max-width: 600px) {
+    body.index_body {
+        padding: 30px 18px;
+    }
+    
+    body.index_body h3 {
+        margin-bottom: 30px;
+    }
+    
+    body.index_body button {
+        padding: 14px 36px;
+        font-size: 1rem;
+    }
 }
